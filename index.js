@@ -23,6 +23,15 @@ app.use('/api', createProxyMiddleware({
   },
 }));
 
+// Define the endpoint
+app.get('/project-info', (req, res) => {
+  res.json({
+    url: "https://vmpkalin.github.io/RoboCrushSaga/", // site of your application, in non webgl build use any
+    name: "RoboTON", // project name, will be displayed in wallet 
+    iconUrl: "https://raw.githubusercontent.com/VmpKalin/newproxy/main/logo.png" // project logo, will be displayed in wallet 
+  });
+});
+
 app.use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
